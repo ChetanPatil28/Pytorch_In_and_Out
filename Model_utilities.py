@@ -45,12 +45,15 @@ def set_bn_bias_to_constant(m):
 depth_model.apply(set_bn_bias_to_constant)
 
 
-### Lets see if the Batch_Norm Bias' have been set to '1'.!!
-for name,params in depth_model.named_parameters():
-    if name.startswith("bn") and name.endswith("bias"):
-        # print(name)
-        W = params[0]
-        B = params[1]
-        print("Batch-Norm Params are ", B)
+
+
+if __name__ == '__main__':
+    
+    ### Lets see if the Batch_Norm Bias' have been set to '1'.!!
+    for name,params in depth_model.named_parameters():
+        if name.startswith("bn") and name.endswith("bias"):
+            W = params[0]
+            B = params[1]
+            print("Batch-Norm Bias are ", B)
 
 
